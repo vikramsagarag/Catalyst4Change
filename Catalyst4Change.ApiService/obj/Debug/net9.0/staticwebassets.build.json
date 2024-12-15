@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "8z7UvU2lEIEZumK74BDoxRycIntY/eldwGrZ3YI5qYA=",
+  "Source": "Catalyst4Change.ApiService",
+  "BasePath": "_content/Catalyst4Change.ApiService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
