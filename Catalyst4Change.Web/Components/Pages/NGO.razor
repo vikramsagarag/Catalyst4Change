@@ -1,0 +1,62 @@
+﻿@page "/ngos"
+@using Catalyst4Change.Web.Services
+@inject NGOApiClient NGOApi
+
+<PageTitle>NGO List</PageTitle>
+
+<h1>NGO List</h1>
+
+<p>This component demonstrates showing NGO data loaded from a backend API service.</p>
+
+<h3>NGO List</h3>
+
+@if (ngos == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Registration Number</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ngo in ngos)
+            {
+                <tr>
+                    <td>@ngo.NGOName</td>
+                    <td>@ngo.RegistrationNumber</td>
+                    <td>@ngo.NGOAddress</td>
+                    <td>
+                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ApiService.Data.NGO> ngos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ngos = await NGOApi.GetNGOsAsync();
+    }
+
+    // private void EditNGO(int id)
+    // {
+    //     NavigationManager.NavigateTo($"/edit-ngo/{id}");
+    // }
+
+    // private async Task DeleteNGO(int id)
+    // {
+    //     await NGOApiClient.DeleteNGOAsync(id);
+    //     ngos = await NGOApiClient.GetNGOsAsync();
+    // }
+}
